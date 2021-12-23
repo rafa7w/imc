@@ -23,48 +23,58 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: const Text('Calculadora de IMC'),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.brown,
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.refresh))
         ],
       ),
       backgroundColor: Colors.white,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const Icon(Icons.person_outline, size: 120, color: Colors.red),
-          const TextField(
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-                labelText: 'Peso (kg)',
-                labelStyle: TextStyle(color: Colors.red)),
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.red, fontSize: 25),
-          ),
-          const TextField(
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-                labelText: 'Altura (cm)',
-                labelStyle: TextStyle(color: Colors.red)),
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.red, fontSize: 25),
-          ),
-          Container(
-            height: 50.0,
-            // ignore: prefer_const_constructors, deprecated_member_use
-            child: RaisedButton(
-              onPressed: null,
-              child: const Text(
-                'Calcular',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25.0,
-                ),
-              ),
-              color: Colors.red,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Icon(Icons.person_outline, size: 120, color: Colors.brown),
+            const TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                  labelText: 'Peso (kg)',
+                  labelStyle: TextStyle(color: Colors.brown)),
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.brown, fontSize: 25),
             ),
-          ),
-        ],
+            const TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                  labelText: 'Altura (cm)',
+                  labelStyle: TextStyle(color: Colors.brown)),
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.brown, fontSize: 25),
+            ),
+            Container(
+              height: 50.0,
+              // ignore: prefer_const_constructors, deprecated_member_use
+              child: RaisedButton(
+                onPressed: null,
+                child: const Text(
+                  'Calcular',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25.0,
+                  ),
+                ),
+                color: Colors.brown,
+              ),
+            ),
+            const Text(
+              'Info',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.brown,
+                fontSize: 25.0,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
