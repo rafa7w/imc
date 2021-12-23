@@ -17,6 +17,19 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  TextEditingController weightController = TextEditingController();
+  TextEditingController heightController = TextEditingController();
+
+  String _infoText = 'Informe seus dados!';
+
+  void _resetFields() {
+    weightController.text = '';
+    heightController.text = '';
+    _infoText = 'Informe seus dados!';
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +38,7 @@ class _HomeState extends State<Home> {
         centerTitle: true,
         backgroundColor: Colors.brown,
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.refresh))
+          IconButton(onPressed: _resetFields, icon: const Icon(Icons.refresh))
         ],
       ),
       backgroundColor: Colors.white,
@@ -35,21 +48,23 @@ class _HomeState extends State<Home> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const Icon(Icons.person_outline, size: 120, color: Colors.brown),
-            const TextField(
+            TextField(
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   labelText: 'Peso (kg)',
                   labelStyle: TextStyle(color: Colors.brown)),
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.brown, fontSize: 25),
+              style: const TextStyle(color: Colors.brown, fontSize: 25),
+              controller: weightController,
             ),
-            const TextField(
+            TextField(
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   labelText: 'Altura (cm)',
                   labelStyle: TextStyle(color: Colors.brown)),
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.brown, fontSize: 25),
+              style: const TextStyle(color: Colors.brown, fontSize: 25),
+              controller: heightController,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -57,7 +72,10 @@ class _HomeState extends State<Home> {
                 height: 50.0,
                 // ignore: prefer_const_constructors, deprecated_member_use
                 child: RaisedButton(
-                  onPressed: null,
+                  color: Colors.brown,
+                  onPressed: () {
+                    print('click');
+                  },
                   child: const Text(
                     'Calcular',
                     style: TextStyle(
@@ -65,18 +83,17 @@ class _HomeState extends State<Home> {
                       fontSize: 25.0,
                     ),
                   ),
-                  color: Colors.brown,
                 ),
               ),
             ),
-            const Text(
-              'Info',
+            Text(
+              _infoText,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.brown,
                 fontSize: 25.0,
               ),
-            )
+            ),
           ],
         ),
       ),
