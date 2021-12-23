@@ -30,6 +30,7 @@ class _HomeState extends State<Home> {
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
+        padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -50,19 +51,22 @@ class _HomeState extends State<Home> {
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.brown, fontSize: 25),
             ),
-            Container(
-              height: 50.0,
-              // ignore: prefer_const_constructors, deprecated_member_use
-              child: RaisedButton(
-                onPressed: null,
-                child: const Text(
-                  'Calcular',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 25.0,
+            Padding(
+              padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+              child: Container(
+                height: 50.0,
+                // ignore: prefer_const_constructors, deprecated_member_use
+                child: RaisedButton(
+                  onPressed: null,
+                  child: const Text(
+                    'Calcular',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25.0,
+                    ),
                   ),
+                  color: Colors.brown,
                 ),
-                color: Colors.brown,
               ),
             ),
             const Text(
